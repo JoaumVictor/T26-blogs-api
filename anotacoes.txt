@@ -1,0 +1,10 @@
+# meus códigos pra criar migration
+
+npx sequelize-cli model:generate --name Users --attributes displayName:string,email:string,password:string,image:string
+
+npx sequelize-cli model:generate --name BlogPosts --attributes title:string,content:string,userId:number,published:string,updated:string
+
+npx sequelize-cli model:generate --name PostCategories --attributes postId:number,categoryId:number
+
+npx sequelize-cli model:generate --name Categories --attributes name:string
+
