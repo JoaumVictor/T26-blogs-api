@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const generateToken = (login) => {
-  const token = jwt.sign({ data: login }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ data: login }, process.env.JWT_SECRET || 'blablabla', {
     expiresIn: '365d',
     algorithm: 'HS256',
   });

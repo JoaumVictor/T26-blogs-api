@@ -8,3 +8,16 @@ npx sequelize-cli model:generate --name PostCategories --attributes postId:numbe
 
 npx sequelize-cli model:generate --name Categories --attributes name:string
 
+#### SERVER VARS
+NODE_ENV=development
+API_PORT=3000
+
+#### DATABASE VARS
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_DB_NAME=blogs-api
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+
+#### SECRECT VARS
+JWT_SECRET=suaSenhaSecreta
