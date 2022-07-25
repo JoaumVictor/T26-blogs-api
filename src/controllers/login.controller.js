@@ -8,7 +8,7 @@ const postLogin = async (req, res) => {
     return res.status(httpStatusCode.OK).json({ token });
   } catch (error) {
     console.error(error);
-    return res.status(error.status || 500).json({ message: error.message });
+    return res.status(error.status).json({ message: error.message });
   }
 };
 
