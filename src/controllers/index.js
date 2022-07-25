@@ -1,6 +1,6 @@
 const postLogin = require('./login.controller');
 const { userPost, getAll, getById } = require('./user.controller');
-const { createCategory } = require('./category.controller');
+const { createCategory, getAllCategories } = require('./category.controller');
 
 module.exports = {
   postLogin,
@@ -8,4 +8,5 @@ module.exports = {
   getAll,
   getById,
   createCategory,
+  getAllCategories,
 };

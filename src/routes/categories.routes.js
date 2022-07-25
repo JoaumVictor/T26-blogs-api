@@ -5,8 +5,11 @@ const controllers = require('../controllers');
 const categoriesRouter = Router();
 
 categoriesRouter.post('/',
-  middlewares.tokenValidate,
   middlewares.validateName,
   controllers.createCategory);
+
+categoriesRouter.get('/',
+middlewares.tokenValidate,
+controllers.getAllCategories);
 
 module.exports = categoriesRouter;
