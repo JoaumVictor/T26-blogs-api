@@ -1,6 +1,6 @@
 const { User } = require('../database/models');
 const CustomError = require('../helpers/customError');
-const generateToken = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/token');
 const httpStatusCodes = require('../helpers/httpStatusCode');
 
 const userPost = async (objPost) => {
@@ -21,4 +21,10 @@ const userPost = async (objPost) => {
   return token;
 };
 
-module.exports = userPost;
+const getAll = async () => {
+  // pega todos os usuários e retorna
+  const response = await User.findAll({ attributes: { exclude: ['password'] } });
+  return response;
+};
+
+module.exports = { userPost, getAll };

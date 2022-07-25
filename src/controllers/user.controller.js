@@ -11,4 +11,14 @@ const userPost = async (req, res) => {
   }
 };
 
-module.exports = userPost;
+const getAll = async (_req, res) => {
+  try {
+    const response = await services.getAll();
+    return res.status(httpStatusCode.OK).json(response);
+  } catch (error) {
+    console.log(error);
+    return res.status(httpStatusCode.INTERNAL_SERVER).json({ message: error.message });
+  }
+};
+
+module.exports = { userPost, getAll };

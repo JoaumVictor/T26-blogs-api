@@ -8,4 +8,8 @@ userRouter.post('/',
   middlewares.userValidation,
   controllers.userPost);
 
+userRouter.get('/',
+  middlewares.tokenValidate,
+  controllers.getAll);
+
 module.exports = userRouter;

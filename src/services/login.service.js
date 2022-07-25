@@ -1,6 +1,6 @@
 const httpStatusCode = require('../helpers/httpStatusCode');
 const { User } = require('../database/models');
-const generateToken = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/token');
 const CustomError = require('../helpers/customError');
 
 const postLogin = async (email, password) => {
