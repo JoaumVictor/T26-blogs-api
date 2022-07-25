@@ -12,10 +12,8 @@ const userPost = async (objPost) => {
   // valido se o email já existe, e se for true, eu retorno um erro de conflito
   if (response) throw new CustomError(httpStatusCodes.CONFLICT, 'User already registered');
 
-  // crio um novo usuário
+  // crio um novo usuário, gero um token e retorno
   User.create(objPost);
-
-  // gero um token e retorno
   const token = generateToken(email);
   return token;
 };
