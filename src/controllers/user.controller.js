@@ -21,4 +21,15 @@ const getAll = async (_req, res) => {
   }
 };
 
-module.exports = { userPost, getAll };
+const getById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await services.getById(id);
+    return res.status(httpStatusCode.OK).json(user);
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status).json({ message: error.message });
+  }
+};
+
+module.exports = { userPost, getAll, getById };

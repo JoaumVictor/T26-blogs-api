@@ -12,4 +12,8 @@ userRouter.get('/',
   middlewares.tokenValidate,
   controllers.getAll);
 
+userRouter.get('/:id',
+  middlewares.tokenValidate,
+  controllers.getById);
+
 module.exports = userRouter;

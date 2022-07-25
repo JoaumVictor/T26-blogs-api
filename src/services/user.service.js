@@ -4,7 +4,6 @@ const { generateToken } = require('../helpers/token');
 const httpStatusCodes = require('../helpers/httpStatusCode');
 
 const userPost = async (objPost) => {
-  console.log(objPost);
   const { email } = objPost;
 
   // pego todos os emails no response
@@ -22,9 +21,18 @@ const userPost = async (objPost) => {
 };
 
 const getAll = async () => {
-  // pega todos os usuários e retorna
-  const response = await User.findAll({ attributes: { exclude: ['password'] } });
-  return response;
+  // pega todos os usuários
+  const data = await User.findAll({ attributes: { exclude: ['password'] } });
+  return data;
 };
 
-module.exports = { userPost, getAll };
+const getById = async (id) => {
+  // pega um usuario pelo id
+  const data = await User.findOne({ where: { id }, attributes: { exclude: ['password'] } });
+
+  // se ele não encontrar um resultado pelo id, retorna um erro
+  if (!data) throw new CustomError(httpStatusCodes.NOT_FOUND, 'User does not exist');
+  return data;
+};
+
+module.exports = { userPost, getAll, getById };
