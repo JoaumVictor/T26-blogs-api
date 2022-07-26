@@ -6,10 +6,11 @@ const categoriesRouter = Router();
 
 categoriesRouter.post('/',
   middlewares.validateName,
+  middlewares.tokenValidate,
   controllers.createCategory);
 
 categoriesRouter.get('/',
-middlewares.tokenValidate,
-controllers.getAllCategories);
+  middlewares.tokenValidate,
+  controllers.getAllCategories);
 
 module.exports = categoriesRouter;
